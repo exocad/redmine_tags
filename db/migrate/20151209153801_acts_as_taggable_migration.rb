@@ -75,15 +75,25 @@ class ActsAsTaggableMigration < ActiveRecord::Migration[4.2]
           'ALTER TABLE tags MODIFY name varchar(255) CHARACTER SET utf8 COLLATE utf8_bin;'
         )
       end
-    end
+  end
+  
 
     # AddMissingIndexes
     unless index_exists?(:taggings, :tag_id)
-      add_index :taggings, :tag_id
+    add_index :taggings, :tag_id
+    
+    unless index_exists?(:taggings, :taggable_id)
       add_index :taggings, :taggable_id
+    end
+    unless index_exists?(:taggings, :taggable_type)
       add_index :taggings, :taggable_type
+    end
+    unless index_exists?(:taggings, :tagger_id)
       add_index :taggings, :tagger_id
+    end
+    unless index_exists?(:taggings, :context)
       add_index :taggings, :context
+    end
       add_index :taggings, [:tagger_id, :tagger_type]
       add_index(
         :taggings,
