@@ -11,11 +11,10 @@ end
 
 Redmine::Plugin.register :redmine_tags do
   name        'Redmine Tags'
-  author      'Aleksey V Zapparov AKA "ixti"'
+  author      'Aleksey V Zapparov AKA "ixti", exocad version'
   description 'Redmine tagging support'
   version     '4.0.0'
-  url         'https://github.com/ixti/redmine_tags/'
-  author_url  'http://www.ixti.net/'
+  url         'https://github.com/exocad/redmine_tags/'
 
   requires_redmine version_or_higher: '4.0.0'
 
